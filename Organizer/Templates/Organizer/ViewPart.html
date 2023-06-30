@@ -1,0 +1,44 @@
+{% extends 'Organizer/Head.html'%}
+{% load static %}
+
+
+{%  block content %}
+<br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" align="center" cellpadding="10">
+        <tr>
+            {% for i in room %}
+            <td>
+                
+                {% for group_name, participants in data.items %}
+                <h2>{{ group_name }} :</h2>
+                {% for participant_name in participants %}
+                       {% if participant_name  in group_name %}
+                    <p>- {{ participants }}</p>
+
+                    {% endif %}
+                {% endfor %}
+                <br>
+            {% endfor %}  
+                  
+                </div>
+               
+            </td>
+            {% if forloop.counter|divisibleby:4 %}
+        </tr>
+        <tr>
+            {% endif %}
+            {% endfor %}
+    </table>
+ 
+</body>
+</html>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock content %}
